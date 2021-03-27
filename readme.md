@@ -61,7 +61,35 @@ pip install -r requirements.txt
 
 各个模型在数据集上的结果（f1 score）如下表所示：（Roberta均指RoBERTa-wwm-ext-large模型）
 
-| 模型 | BiLSTM+CRF | Roberta+Softmax | Roberta+CRF | Roberta+BiLSTM+CRF |
-| ---- | ---------- | --------------- | ----------- | ------------------ |
-|      |            |                 |             |                    |
+|    模型    | BiLSTM+CRF | Roberta+Softmax | Roberta+CRF | Roberta+BiLSTM+CRF |
+| :--------: | :--------: | :-------------: | :---------: | :----------------: |
+|   recall   |   0.921    |                 |             |                    |
+| precision  |   0.914    |                 |             |                    |
+|  F1 score  |   0.917    |                 |             |                    |
+|  OOV Rate  |   0.072    |                 |             |                    |
+| OOV Recall |   0.453    |                 |             |                    |
+| IV Recall  |   0.957    |                 |             |                    |
 
+## Parameter Setting
+
+### 1.model parameters
+
+在./experiments/seg/config.json中设置了Bert/Roberta模型的基本参数，而在./pretrained_bert_models下的两个预训练文件夹中，config.json除了设置Bert/Roberta的基本参数外，还设置了'X'模型（如LSTM）参数，可根据需要进行更改。
+
+### 2.other parameters
+
+环境路径以及其他超参数在./config.py中进行设置。
+
+## Usage
+
+打开指定模型对应的目录，命令行输入：
+
+```
+python run.py
+```
+
+模型运行结束后，最优模型和训练log保存在./experiments/路径下。在测试集中的bad case保存在./case/bad_case.txt中。
+
+## Attention
+
+目前，当前模型的train.log已保存在./experiments/clue/路径下，如要重新运行模型，请先将train.log移出当前路径，以免覆盖。

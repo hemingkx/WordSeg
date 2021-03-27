@@ -9,6 +9,7 @@ exp_dir = os.getcwd() + '/experiments/'
 model_dir = exp_dir + 'model.pth'
 log_dir = exp_dir + 'train.log'
 case_dir = os.getcwd() + '/case/bad_case.txt'
+output_dir = data_dir + 'output.txt'
 
 max_vocab_size = 1000000
 

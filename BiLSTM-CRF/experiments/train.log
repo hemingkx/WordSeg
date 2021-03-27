@@ -1,0 +1,55 @@
+device: cuda:1
+-------- Vocabulary Loaded! --------
+-------- Process Done! --------
+-------- Process Done! --------
+epoch: 1, train loss: 1031.6144681902074
+epoch: 1, f1 score: 0.9507646983597705, dev loss: 491.33766276041666
+--------Save best model!--------
+epoch: 2, train loss: 414.7915484584979
+epoch: 2, f1 score: 0.9607532492173417, dev loss: 330.3230794270833
+--------Save best model!--------
+epoch: 3, train loss: 259.93322338275055
+epoch: 3, f1 score: 0.9694527443283251, dev loss: 272.61656901041664
+--------Save best model!--------
+epoch: 4, train loss: 174.5896696403845
+epoch: 4, f1 score: 0.9731117467672159, dev loss: 250.59851888020833
+--------Save best model!--------
+epoch: 5, train loss: 120.6668630500338
+epoch: 5, f1 score: 0.9736039312690072, dev loss: 244.40987955729167
+--------Save best model!--------
+epoch: 6, train loss: 76.37348125230021
+epoch: 6, f1 score: 0.9752571955632288, dev loss: 257.8794921875
+--------Save best model!--------
+epoch: 7, train loss: 53.31168785024045
+epoch: 7, f1 score: 0.9748978124290364, dev loss: 273.631640625
+epoch: 8, train loss: 41.50864540018252
+epoch: 8, f1 score: 0.9756900433228022, dev loss: 290.95673828125
+--------Save best model!--------
+epoch: 9, train loss: 33.03146235088804
+epoch: 9, f1 score: 0.9776415758085156, dev loss: 308.02041015625
+--------Save best model!--------
+epoch: 10, train loss: 27.29905539128318
+epoch: 10, f1 score: 0.9757085020242916, dev loss: 329.6614583333333
+epoch: 11, train loss: 18.547245071895087
+epoch: 11, f1 score: 0.975650602466636, dev loss: 351.09954427083335
+epoch: 12, train loss: 15.272694236751812
+epoch: 12, f1 score: 0.9749071027904664, dev loss: 363.44482421875
+epoch: 13, train loss: 13.934791866523117
+epoch: 13, f1 score: 0.9789640117994101, dev loss: 364.3125
+--------Save best model!--------
+epoch: 14, train loss: 12.754439767394492
+epoch: 14, f1 score: 0.9783289632201828, dev loss: 362.7451171875
+epoch: 15, train loss: 17.55135432241568
+epoch: 15, f1 score: 0.9736640608014218, dev loss: 290.98828125
+epoch: 16, train loss: 48.95361766886355
+epoch: 16, f1 score: 0.97020977893294, dev loss: 237.51329752604167
+epoch: 17, train loss: 50.249669039427346
+epoch: 17, f1 score: 0.9749632785305745, dev loss: 234.0857421875
+epoch: 18, train loss: 67.32593276607456
+epoch: 18, f1 score: 0.9749409430218274, dev loss: 231.37947591145834
+Best val f1: 0.9789640117994101
+Training Finished!
+-------- Process Done! --------
+--------Load model from /home/xiaheming/workspace/wordseg/experiments/model.pth--------
+--------Bad Cases reserved !--------
+final test loss: 729.3828765368852, f1 score: 0.9536670256134143, precision:0.9570163251128864, recall: 0.9503410876480282

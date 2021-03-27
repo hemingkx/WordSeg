@@ -115,7 +115,6 @@ def run(word_train, label_train, word_dev, label_dev, vocab, device, kf_index=0)
     with torch.no_grad():
         # test on the final test set
         test_loss, f1 = test(config.test_dir, vocab, device, kf_index)
-        # sample_test(test_input, test_label, model, device)
     return test_loss, f1
 
 

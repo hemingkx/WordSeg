@@ -3,9 +3,8 @@ from torch.utils.data import DataLoader
 
 import config
 import logging
-from tqdm import tqdm
 from data_loader import SegDataset
-from metric import f1_score, bad_case
+from metric import f1_score, bad_case, output_write
 
 import numpy as np
 
@@ -110,6 +109,7 @@ def dev(data_loader, vocab, model, device, mode='dev'):
     metrics['loss'] = float(dev_losses) / len(data_loader)
     if mode != 'dev':
         bad_case(sent_data, pred_tags, true_tags)
+        output_write(sent_data, pred_tags)
     return metrics
 
 
@@ -122,7 +122,7 @@ def test(dataset_dir, vocab, device, kf_index=0):
     test_dataset = SegDataset(word_test, label_test, vocab, config.label2id)
     # build data_loader
     test_loader = DataLoader(test_dataset, batch_size=config.batch_size,
-                             shuffle=True, collate_fn=test_dataset.collate_fn)
+                             shuffle=False, collate_fn=test_dataset.collate_fn)
     # Prepare model
     if config.model_dir is not None:
         # model

@@ -55,6 +55,8 @@ def f1_score(sents, preds, tags):
         entityres = calculate(sents[idx], p, entityres)
         entityall = calculate(sents[idx], t, entityall)
 
+    # print("pred:", entityres)
+    # print("labels:", entityall)
     nb_correct = len([i for i in entityres if i in entityall])
     nb_pred = len(entityres)
     nb_true = len(entityall)
@@ -78,3 +80,28 @@ def bad_case(sents, preds, tags):
             output.write("golden label: " + str(t) + "\n")
             output.write("model pred: " + str(p) + "\n")
     logging.info("--------Bad Cases reserved !--------")
+
+
+def output_write(sents, preds):
+    """write results into output.txt for f1 calculation"""
+    with open(config.output_dir, "w") as f:
+        for (s, p) in zip(sents, preds):
+            res = calculate(s, p)
+            for entity in res:
+                for w in entity:
+                    f.write(w)
+                f.write('  ')
+            f.write("\n")
+
+
+def f1_test():
+    sents = [['机', '器', '人', '迎', '客', '小', '姐', '（', '图', '片', '）'], ['降', '水', '概', '率', '2', '0', '％']]
+    tags = [['B', 'M', 'E', 'S', 'S', 'B', 'E', 'S', 'B', 'E', 'S'], ['B', 'E', 'B', 'E', 'B', 'M', 'E']]
+    preds = [['B', 'E', 'S', 'B', 'E', 'B', 'E', 'S', 'B', 'E', 'S'], ['S', 'S', 'S', 'S', 'B', 'M', 'E']]
+    score, p, r = f1_score(sents, preds, tags)
+    print("f1 score: {}, precision:{}, recall: {}".format(score, p, r))
+    output_write(sents, preds)
+
+
+if __name__ == "__main__":
+    f1_test()
