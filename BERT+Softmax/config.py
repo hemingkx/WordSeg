@@ -14,9 +14,13 @@ exp_dir = os.getcwd() + '/experiments/'
 log_dir = exp_dir + 'train.log'
 case_dir = os.getcwd() + '/case/bad_case.txt'
 output_dir = data_dir + 'output.txt'
+res_dir = data_dir + 'res.txt'
+test_ans = data_dir + 'test.txt'
 
 max_vocab_size = 1000000
-max_len = 500
+max_len = 256
+sep_word = '@'  # 拆分句子的文本分隔符
+sep_label = 'S'  # 拆分句子的标签分隔符
 
 # 训练集、验证集划分比例
 dev_split_size = 0.1
@@ -32,11 +36,11 @@ learning_rate = 3e-5
 weight_decay = 0.01
 clip_grad = 5
 
-batch_size = 1
+batch_size = 2
 epoch_num = 20
 min_epoch_num = 5
 patience = 0.0002
-patience_num = 10
+patience_num = 5
 
 gpu = '0'
 

@@ -89,3 +89,4 @@ if __name__ == "__main__":
     # 建立词表
     vocab = Vocabulary(config)
     vocab.get_vocab()
+    print(len(vocab.word2id))

@@ -12,7 +12,6 @@ class SegDataset(Dataset):
         self.dataset = self.preprocess(words, labels)
         self.word_pad_idx = word_pad_idx
         self.label_pad_idx = label_pad_idx
-        # self.device = config.device
 
     def preprocess(self, origin_sentences, origin_labels):
         """
@@ -97,8 +96,4 @@ class SegDataset(Dataset):
         batch_data = torch.tensor(batch_data, dtype=torch.long)
         batch_label_starts = torch.tensor(batch_label_starts, dtype=torch.long)
         batch_labels = torch.tensor(batch_labels, dtype=torch.long)
-
-        # shift tensors to GPU if available
-        # batch_data, batch_label_starts = batch_data.to(self.device), batch_label_starts.to(self.device)
-        # batch_labels = batch_labels.to(self.device)
         return [batch_data, batch_label_starts, batch_labels]

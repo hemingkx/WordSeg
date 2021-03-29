@@ -1,28 +1,91 @@
 import os
+
 import config
 import logging
 
 
 def calculate(x, y, res=None):
+    """
+    Gets entities from sequence.
+    Args:
+        x (list): sequence of words.
+        y (list): sequence of labels.
+        res: list of results
+    Returns:
+        res: list of entities.
+    """
     if res is None:
         res = []
     entity = []
-    for j in range(len(x)):
-        if y[j] == 'B':
-            entity = [x[j]]
-        elif y[j] == 'M' and len(entity) != 0:
-            entity.append(x[j])
-        elif y[j] == 'E' and len(entity) != 0:
-            entity.append(x[j])
+    prev_tag = 'O'  # start tag
+    for i, tag in enumerate(y + ['P']):  # end tag
+        if end_of_chunk(prev_tag, tag):
             res.append(entity)
             entity = []
-        elif y[j] == 'S':
-            entity = [x[j]]
-            res.append(entity)
-            entity = []
+        if start_of_chunk(prev_tag, tag) and i < len(x):
+            entity = [x[i]]
+        elif i < len(x):
+            entity.append(x[i])
         else:
-            entity = []
+            continue
+        prev_tag = tag
     return res
+
+
+def end_of_chunk(prev_tag, tag):
+    """Checks if a chunk ended between the previous and current word.
+    Args:
+        prev_tag: previous chunk tag.
+        tag: current chunk tag.
+    Returns:
+        chunk_end: boolean.
+    """
+    chunk_end = False
+
+    if prev_tag == 'S':
+        chunk_end = True
+    if prev_tag == 'E':
+        chunk_end = True
+    if tag == 'P':
+        chunk_end = True
+    # pred_label中可能出现这种情形
+    if prev_tag == 'B' and tag == 'B':
+        chunk_end = True
+    if prev_tag == 'B' and tag == 'S':
+        chunk_end = True
+    if prev_tag == 'M' and tag == 'B':
+        chunk_end = True
+    if prev_tag == 'M' and tag == 'S':
+        chunk_end = True
+
+    return chunk_end
+
+
+def start_of_chunk(prev_tag, tag):
+    """Checks if a chunk started between the previous and current word.
+    Args:
+        prev_tag: previous chunk tag.
+        tag: current chunk tag.
+    Returns:
+        chunk_start: boolean.
+    """
+    chunk_start = False
+
+    if tag == 'B':
+        chunk_start = True
+    if tag == 'S':
+        chunk_start = True
+
+    if prev_tag == 'O':
+        chunk_start = True
+    if prev_tag == 'S':
+        chunk_start = True
+    if prev_tag == 'E' and tag == 'M':
+        chunk_start = True
+    if prev_tag == 'E' and tag == 'E':
+        chunk_start = True
+
+    return chunk_start
 
 
 def f1_score(sents, preds, tags):
@@ -89,14 +152,37 @@ def output_write(sents, preds):
             f.write("\n")
 
 
+def output2res():
+    """write results into output.txt for f1 calculation"""
+    words_list = []
+    with open(config.output_dir, 'r', encoding='utf-8') as f:
+        inline = False  # 上一句是否还未结束
+        one_line = []
+        for line in f:
+            if line[-4] == '@':
+                one_line.extend(line[:-4])
+                inline = True
+            else:
+                if inline:
+                    one_line.extend(line)
+                    words_list.append("".join(one_line))
+                    one_line = []
+                    inline = False
+                else:
+                    words_list.append(line)
+    with open(config.res_dir, "w") as f:
+        for line in words_list:
+            f.write(line)
+
+
 def f1_test():
     sents = [['机', '器', '人', '迎', '客', '小', '姐', '（', '图', '片', '）'], ['降', '水', '概', '率', '2', '0', '％']]
     tags = [['B', 'M', 'E', 'S', 'S', 'B', 'E', 'S', 'B', 'E', 'S'], ['B', 'E', 'B', 'E', 'B', 'M', 'E']]
-    preds = [['B', 'E', 'S', 'B', 'E', 'B', 'E', 'S', 'B', 'E', 'S'], ['S', 'S', 'S', 'S', 'B', 'M', 'E']]
+    preds = [['B', 'E', 'S', 'B', 'E', 'B', 'E', 'S', 'B', 'E', 'S'], ['M', 'E', 'E', 'E', 'B', 'M', 'E']]
     score, p, r = f1_score(sents, preds, tags)
     print("f1 score: {}, precision:{}, recall: {}".format(score, p, r))
-    output_write(sents, preds)
 
 
 if __name__ == "__main__":
-    f1_test()
+    output2res()
+    # f1_test()

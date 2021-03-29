@@ -14,7 +14,7 @@
   "max_position_embeddings": 512,
   "num_attention_heads": 16,
   "num_hidden_layers": 24,
-  "num_labels": 31,
+  "num_labels": 4,
   "output_attentions": false,
   "output_hidden_states": false,
   "output_past": true,

@@ -131,12 +131,13 @@ def run():
                                     device_ids=[config.local_rank], output_device=config.local_rank)
     # Train the model
     logging.info("--------Start Training!--------")
-    # train(train_loader, dev_loader, model, optimizer, scheduler, config.model_dir, config.local_rank)
+    train(train_loader, dev_loader, model, optimizer, scheduler, config.model_dir, config.local_rank)
 
 
 if __name__ == '__main__':
-    if os.path.exists(config.log_dir):
-        os.remove(config.log_dir)
+    if config.local_rank == 0:
+        if os.path.exists(config.log_dir):
+            os.remove(config.log_dir)
     run()
     if config.local_rank == 0:
         test()

@@ -6,6 +6,7 @@ import logging
 from data_loader import SegDataset
 from metric import f1_score, bad_case, output_write
 
+from tqdm import tqdm
 import numpy as np
 
 # 打印完整的numpy array
@@ -17,7 +18,7 @@ def epoch_train(train_loader, model, optimizer, scheduler, device, epoch, kf_ind
     model.train()
     # step number in one epoch: 336
     train_loss = 0.0
-    for idx, batch_samples in enumerate(train_loader):
+    for idx, batch_samples in enumerate(tqdm(train_loader)):
         x, y, mask, lens = batch_samples
         x = x.to(device)
         y = y.to(device)
@@ -82,7 +83,7 @@ def dev(data_loader, vocab, model, device, mode='dev'):
     pred_tags = []
     sent_data = []
     dev_losses = 0
-    for idx, batch_samples in enumerate(data_loader):
+    for idx, batch_samples in enumerate(tqdm(data_loader)):
         sentences, labels, masks, lens = batch_samples
         sent_data.extend([[vocab.id2word.get(idx.item()) for i, idx in enumerate(indices) if mask[i] > 0]
                           for (mask, indices) in zip(masks, sentences)])

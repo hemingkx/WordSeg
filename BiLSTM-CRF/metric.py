@@ -4,25 +4,87 @@ import logging
 
 
 def calculate(x, y, res=None):
+    """
+    Gets entities from sequence.
+    Args:
+        x (list): sequence of words.
+        y (list): sequence of labels.
+        res: list of results
+    Returns:
+        res: list of entities.
+    """
     if res is None:
         res = []
     entity = []
-    for j in range(len(x)):
-        if y[j] == 'B':
-            entity = [x[j]]
-        elif y[j] == 'M' and len(entity) != 0:
-            entity.append(x[j])
-        elif y[j] == 'E' and len(entity) != 0:
-            entity.append(x[j])
+    prev_tag = 'O'  # start tag
+    for i, tag in enumerate(y + ['P']):  # end tag
+        if end_of_chunk(prev_tag, tag):
             res.append(entity)
             entity = []
-        elif y[j] == 'S':
-            entity = [x[j]]
-            res.append(entity)
-            entity = []
+        if start_of_chunk(prev_tag, tag) and tag != 'P':
+            entity = [x[i]]
+        elif tag != 'P':
+            entity.append(x[i])
         else:
-            entity = []
+            continue
+        prev_tag = tag
     return res
+
+
+def end_of_chunk(prev_tag, tag):
+    """Checks if a chunk ended between the previous and current word.
+    Args:
+        prev_tag: previous chunk tag.
+        tag: current chunk tag.
+    Returns:
+        chunk_end: boolean.
+    """
+    chunk_end = False
+
+    if prev_tag == 'S':
+        chunk_end = True
+    if prev_tag == 'E':
+        chunk_end = True
+    if tag == 'P':
+        chunk_end = True
+    # pred_label中可能出现这种情形
+    if prev_tag == 'B' and tag == 'B':
+        chunk_end = True
+    if prev_tag == 'B' and tag == 'S':
+        chunk_end = True
+    if prev_tag == 'M' and tag == 'B':
+        chunk_end = True
+    if prev_tag == 'M' and tag == 'S':
+        chunk_end = True
+
+    return chunk_end
+
+
+def start_of_chunk(prev_tag, tag):
+    """Checks if a chunk started between the previous and current word.
+    Args:
+        prev_tag: previous chunk tag.
+        tag: current chunk tag.
+    Returns:
+        chunk_start: boolean.
+    """
+    chunk_start = False
+
+    if tag == 'B':
+        chunk_start = True
+    if tag == 'S':
+        chunk_start = True
+
+    if prev_tag == 'O':
+        chunk_start = True
+    if prev_tag == 'S':
+        chunk_start = True
+    if prev_tag == 'E' and tag == 'M':
+        chunk_start = True
+    if prev_tag == 'E' and tag == 'E':
+        chunk_start = True
+
+    return chunk_start
 
 
 def f1_score(sents, preds, tags):

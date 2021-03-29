@@ -63,12 +63,12 @@ pip install -r requirements.txt
 
 |    模型    | BiLSTM+CRF | Roberta+Softmax | Roberta+CRF | Roberta+BiLSTM+CRF |
 | :--------: | :--------: | :-------------: | :---------: | :----------------: |
-|  F1 Score  |   0.917    |    **0.943**    |             |                    |
-|   Recall   |   0.921    |    **0.950**    |             |                    |
-| Precision  |   0.914    |    **0.937**    |             |                    |
-|  OOV Rate  |   0.072    |      0.077      |             |                    |
-| OOV Recall |   0.453    |    **0.627**    |             |                    |
-| IV Recall  |   0.957    |    **0.977**    |             |                    |
+|  F1 Score  |   0.916    |    **0.946**    |             |                    |
+|   Recall   |   0.918    |    **0.948**    |             |                    |
+| Precision  |   0.913    |    **0.943**    |             |                    |
+|  OOV Rate  |   0.075    |      0.076      |             |                    |
+| OOV Recall |   0.431    |    **0.639**    |             |                    |
+| IV Recall  |   0.957    |    **0.974**    |             |                    |
 
 ## Parameter Setting
 
