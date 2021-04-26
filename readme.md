@@ -89,6 +89,26 @@ python run.py
 
 模型运行结束后，最优模型和训练log保存在./experiments/路径下。在测试集中的bad case保存在./case/bad_case.txt中。
 
+## MultiGPU
+
+单卡训练指令：
+
+```
+CUDA_VISIBLE_DEVICES=0 python -m torch.distributed.launch --nproc_per_node=1 run.py
+```
+
+多卡训练指令：
+
+```
+CUDA_VISIBLE_DEVICES=0,1,2,3 python -m torch.distributed.launch --nproc_per_node=4 run.py
+```
+
+后台训练：
+
+```
+CUDA_VISIBLE_DEVICES=0,1,2,3 nohup python -m torch.distributed.launch --nproc_per_node=4 run.py >/dev/null 2>&1
+```
+
 ## Attention
 
 目前，当前模型的train.log已保存在./experiments/路径下，如要重新运行模型，请先将train.log移出当前路径，以免覆盖。
