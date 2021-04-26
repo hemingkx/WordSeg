@@ -3,8 +3,8 @@
 本项目为中文分词任务baseline的代码实现，模型包括
 
 - BiLSTM-CRF
-- BERT-base + X (softmax/CRF/BiLSTM+CRF)
-- Roberta + X (softmax/CRF/BiLSTM+CRF)
+- BERT-base + X (softmax/CRF)
+- Roberta + X (softmax/CRF)
 
 本项目是 [CLUENER2020](https://github.com/hemingkx/CLUENER2020) 的拓展项目。
 
@@ -19,7 +19,6 @@
 - BiLSTM-CRF
 - BERT-Softmax
 - BERT-CRF
-- BERT-LSTM-CRF
 
 其中，根据使用的预训练模型的不同，BERT-base-X 模型可转换为 Roberta-X 模型。
 
@@ -61,14 +60,14 @@ pip install -r requirements.txt
 
 各个模型在数据集上的结果（f1 score）如下表所示：（Roberta均指RoBERTa-wwm-ext-large模型）
 
-|    模型    | BiLSTM+CRF | Roberta+Softmax | Roberta+CRF | Roberta+BiLSTM+CRF |
-| :--------: | :--------: | :-------------: | :---------: | :----------------: |
-|  F1 Score  |   0.916    |    **0.946**    |             |                    |
-|   Recall   |   0.918    |    **0.948**    |             |                    |
-| Precision  |   0.913    |    **0.943**    |             |                    |
-|  OOV Rate  |   0.075    |      0.076      |             |                    |
-| OOV Recall |   0.431    |    **0.639**    |             |                    |
-| IV Recall  |   0.957    |    **0.974**    |             |                    |
+|    模型    | BiLSTM+CRF | Roberta+Softmax | Roberta+CRF |
+| :--------: | :--------: | :-------------: | :---------: |
+|  F1 Score  |   0.916    |    **0.946**    |  **0.946**  |
+|   Recall   |   0.918    |      0.948      |  **0.951**  |
+| Precision  |   0.913    |    **0.943**    |    0.942    |
+|  OOV Rate  |   0.075    |      0.076      |    0.077    |
+| OOV Recall |   0.431    |    **0.639**    |    0.636    |
+| IV Recall  |   0.957    |      0.974      |  **0.977**  |
 
 ## Parameter Setting
 
@@ -92,4 +91,4 @@ python run.py
 
 ## Attention
 
-目前，当前模型的train.log已保存在./experiments/clue/路径下，如要重新运行模型，请先将train.log移出当前路径，以免覆盖。
+目前，当前模型的train.log已保存在./experiments/路径下，如要重新运行模型，请先将train.log移出当前路径，以免覆盖。
