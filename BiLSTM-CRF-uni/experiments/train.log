@@ -1,0 +1,89 @@
+2021-04-28 00:04:44,401:INFO: device: cuda:0
+2021-04-28 00:04:44,407:INFO: -------- Vocabulary Loaded! --------
+2021-04-28 00:04:45,953:INFO: -------- Process Done! --------
+2021-04-28 00:04:46,029:INFO: -------- Process Done! --------
+2021-04-28 00:04:46,029:INFO: loading projection weights from ./data/embedding/sgns.context.word-character.char1-2.dynwin5.thr10.neg5.dim300.iter5
+2021-04-28 00:05:43,795:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:05:47,588:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:05:48,705:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:05:49,655:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:05:53,126:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:05:53,763:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:05:56,973:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:05:57,447:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:05:58,590:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:00,233:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:00,966:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:06,353:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:07,393:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:07,863:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:09,337:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:09,592:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:10,275:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:10,331:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:12,001:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:14,275:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:14,334:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:21,271:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:22,704:WARNING: duplicate word '..................................................................................................' in word2vec file, ignoring all but first
+2021-04-28 00:06:22,782:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:23,213:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:24,169:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:25,092:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:25,510:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:28,328:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:28,778:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:33,175:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:34,063:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:34,444:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:36,560:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:37,404:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:41,594:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:42,745:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:43,647:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:44,537:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:47,789:WARNING: duplicate word '**************************************************************************************************' in word2vec file, ignoring all but first
+2021-04-28 00:06:50,671:WARNING: duplicate word '==================================================================================================' in word2vec file, ignoring all but first
+2021-04-28 00:06:51,132:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:52,788:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:55,321:WARNING: duplicate word '==================================================================================================' in word2vec file, ignoring all but first
+2021-04-28 00:06:55,819:WARNING: duplicate word '==================================================================================================' in word2vec file, ignoring all but first
+2021-04-28 00:06:57,690:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:06:57,832:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:07:00,893:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:07:01,252:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:07:03,786:WARNING: duplicate word '--------------------------------------------------------------------------------------------------' in word2vec file, ignoring all but first
+2021-04-28 00:07:29,535:INFO: KeyedVectors lifecycle event {'msg': 'loaded (792679, 300) matrix of type float32 from ./data/embedding/sgns.context.word-character.char1-2.dynwin5.thr10.neg5.dim300.iter5', 'binary': False, 'encoding': 'utf-8', 'datetime': '2021-04-28T00:07:29.534703', 'gensim': '4.0.1', 'python': '3.6.13 |Anaconda, Inc.| (default, Feb 23 2021, 21:15:04) \n[GCC 7.3.0]', 'platform': 'Linux-4.15.0-118-generic-x86_64-with-debian-stretch-sid', 'event': 'load_word2vec_format'}
+2021-04-28 00:12:15,948:INFO: epoch: 1, train loss: 1242.889381750306
+2021-04-28 00:13:05,801:INFO: epoch: 1, f1 score: 0.9606606747917744, dev loss: 622.4680989583334
+2021-04-28 00:13:05,845:INFO: --------Save best model!--------
+2021-04-28 00:17:48,477:INFO: epoch: 2, train loss: 502.26438408467305
+2021-04-28 00:18:35,751:INFO: epoch: 2, f1 score: 0.9750421775888556, dev loss: 394.1532877604167
+2021-04-28 00:18:35,783:INFO: --------Save best model!--------
+2021-04-28 00:23:16,490:INFO: epoch: 3, train loss: 306.78638258976724
+2021-04-28 00:24:02,656:INFO: epoch: 3, f1 score: 0.9769923370743014, dev loss: 301.51910807291665
+2021-04-28 00:24:02,689:INFO: --------Save best model!--------
+2021-04-28 00:28:42,105:INFO: epoch: 4, train loss: 197.5188843171988
+2021-04-28 00:29:27,787:INFO: epoch: 4, f1 score: 0.9758320896406321, dev loss: 258.34070638020836
+2021-04-28 00:34:10,703:INFO: epoch: 5, train loss: 132.52879978293802
+2021-04-28 00:34:57,713:INFO: epoch: 5, f1 score: 0.9804788422390055, dev loss: 240.82841796875
+2021-04-28 00:34:57,747:INFO: --------Save best model!--------
+2021-04-28 00:39:43,157:INFO: epoch: 6, train loss: 66.85232667424786
+2021-04-28 00:40:29,263:INFO: epoch: 6, f1 score: 0.9837416407492532, dev loss: 243.41339518229168
+2021-04-28 00:40:29,435:INFO: --------Save best model!--------
+2021-04-28 00:45:13,887:INFO: epoch: 7, train loss: 41.535595210630504
+2021-04-28 00:45:59,998:INFO: epoch: 7, f1 score: 0.9820934166139077, dev loss: 272.15390625
+2021-04-28 00:50:42,473:INFO: epoch: 8, train loss: 29.12877751108426
+2021-04-28 00:51:28,203:INFO: epoch: 8, f1 score: 0.9810603733096371, dev loss: 298.09541015625
+2021-04-28 00:56:12,444:INFO: epoch: 9, train loss: 22.478538458916677
+2021-04-28 00:56:58,793:INFO: epoch: 9, f1 score: 0.9799111682930405, dev loss: 320.83216145833336
+2021-04-28 01:01:43,189:INFO: epoch: 10, train loss: 17.53525575328229
+2021-04-28 01:02:30,504:INFO: epoch: 10, f1 score: 0.9782845350675413, dev loss: 345.6391927083333
+2021-04-28 01:07:12,141:INFO: epoch: 11, train loss: 8.077176494607285
+2021-04-28 01:07:58,501:INFO: epoch: 11, f1 score: 0.980294750786554, dev loss: 367.78118489583335
+2021-04-28 01:07:58,501:INFO: Best val f1: 0.9837416407492532
+2021-04-28 01:07:58,501:INFO: Training Finished!
+2021-04-28 01:07:58,639:INFO: -------- Process Done! --------
+2021-04-28 01:07:58,661:INFO: --------Load model from /home/xiaheming/workspace/wordseg/experiments/model.pth--------
+2021-04-28 01:08:42,756:INFO: --------Bad Cases reserved !--------
+2021-04-28 01:08:42,904:INFO: final test loss: 627.6357581967213, f1 score: 0.9605687932359722, precision:0.9632712837707634, recall: 0.9578814241367416
