@@ -62,7 +62,10 @@ def train(train_loader, dev_loader, vocab, model, optimizer, scheduler, device, 
             improve_f1 = val_f1 - best_val_f1
             if improve_f1 > 1e-5:
                 best_val_f1 = val_f1
-                torch.save(model, config.model_dir)
+                if kf_index == 0:
+                    torch.save(model, config.model_dir)
+                else:
+                    torch.save(model, config.exp_dir + "model_{}.pth".format(kf_index))
                 logging.info("--------Save best model!--------")
                 if improve_f1 < config.patience:
                     patience_counter += 1
@@ -105,7 +108,7 @@ def dev(data_loader, vocab, model, device, mode='dev'):
 
     # logging loss, f1 and report
     metrics = {}
-    f1, p, r = f1_score(sent_data, pred_tags, true_tags)
+    f1, p, r = f1_score(pred_tags, true_tags)
     metrics['f1'] = f1
     metrics['p'] = p
     metrics['r'] = r
@@ -114,6 +117,14 @@ def dev(data_loader, vocab, model, device, mode='dev'):
         bad_case(sent_data, pred_tags, true_tags)
         output_write(sent_data, pred_tags)
     return metrics
+
+
+def load_model(model_dir, device):
+    # Prepare model
+    model = torch.load(model_dir)
+    model.to(device)
+    logging.info("--------Load model from {}--------".format(model_dir))
+    return model
 
 
 def test(dataset_dir, vocab, device, kf_index=0):
@@ -126,15 +137,10 @@ def test(dataset_dir, vocab, device, kf_index=0):
     # build data_loader
     test_loader = DataLoader(test_dataset, batch_size=config.batch_size,
                              shuffle=False, collate_fn=test_dataset.collate_fn)
-    # Prepare model
-    if config.model_dir is not None:
-        # model
-        model = torch.load(config.model_dir)
-        model.to(device)
-        logging.info("--------Load model from {}--------".format(config.model_dir))
+    if kf_index == 0:
+        model = load_model(config.model_dir, device)
     else:
-        logging.info("--------No model to test !--------")
-        return
+        model = load_model(config.exp_dir + "model_{}.pth".format(kf_index), device)
     metric = dev(test_loader, vocab, model, device, mode='test')
     f1 = metric['f1']
     p = metric['p']

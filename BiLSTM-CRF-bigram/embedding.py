@@ -57,7 +57,6 @@ def embedding(vocab):
         cnt += 1
         weight[index, :] = torch.from_numpy(word2vec_model.get_vector(
             vocab.id_word(vocab.word_id(word2vec_model.index_to_key[i]))))
-    print("--------Pretrained Embedding Loaded ! ({}/{})--------".format(cnt, len(vocab)))
     logging.info("--------Pretrained Embedding Loaded ! ({}/{})--------".format(cnt, len(vocab)))
     return weight
 

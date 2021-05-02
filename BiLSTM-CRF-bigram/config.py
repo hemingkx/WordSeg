@@ -17,15 +17,17 @@ pretrained_embedding = True
 
 max_vocab_size = 1000000
 
-n_split = 5
+n_split = 10
 dev_split_size = 0.1
 batch_size = 32
 embedding_size = 300
-hidden_size = 384
-drop_out = 0.2
+hidden_size = 256
+lstm_layers = 2
+lstm_drop_out = 0.2
+nn_drop_out = 0
 lr = 0.001
 betas = (0.9, 0.999)
-lr_step = 5
+lr_step = 3
 lr_gamma = 0.5
 
 epoch_num = 30

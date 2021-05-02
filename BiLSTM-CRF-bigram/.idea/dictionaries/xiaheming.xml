@@ -13,6 +13,7 @@
       <w>ilen</w>
       <w>itag</w>
       <w>logits</w>
+      <w>lstm</w>
       <w>preds</w>
       <w>pretrained</w>
       <w>sents</w>
