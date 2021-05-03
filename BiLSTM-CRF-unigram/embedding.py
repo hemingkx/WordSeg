@@ -57,7 +57,7 @@ def embedding(vocab):
         cnt += 1
         weight[index, :] = torch.from_numpy(word2vec_model.get_vector(
             vocab.id_word(vocab.word_id(word2vec_model.index_to_key[i]))))
-    print("--------Pretrained Embedding Loaded ! ({}/{})--------".format(cnt, len(vocab)))
+    logging.info("--------Pretrained Embedding Loaded ! ({}/{})--------".format(cnt, len(vocab)))
     return weight
 
 
@@ -70,7 +70,7 @@ if __name__ == "__main__":
     vocab = Vocabulary(config)
     vocab.get_vocab()
     matrix, emb_vocab, size, l = load_embedding_manually(config.embedding_dir)
-    print(emb_vocab['i2w'][4])
-    print(vocab.word_id(emb_vocab['i2w'][4]))
+    print(emb_vocab['i2w'][4])  # 大
+    print(vocab.word_id(emb_vocab['i2w'][4]))  # 15
     w = embedding(vocab)
 

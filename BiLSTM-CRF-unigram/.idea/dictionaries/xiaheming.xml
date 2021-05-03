@@ -1,6 +1,8 @@
 <component name="ProjectDictionaryState">
   <dictionary name="xiaheming">
     <words>
+      <w>bigram</w>
+      <w>bigrams</w>
       <w>bilstm</w>
       <w>bmes</w>
       <w>dataloader</w>
@@ -11,9 +13,12 @@
       <w>ilen</w>
       <w>itag</w>
       <w>logits</w>
+      <w>lstm</w>
       <w>preds</w>
       <w>pretrained</w>
       <w>sents</w>
+      <w>unigram</w>
+      <w>unigrams</w>
     </words>
   </dictionary>
 </component>

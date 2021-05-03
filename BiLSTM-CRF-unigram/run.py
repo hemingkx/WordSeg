@@ -68,7 +68,6 @@ def k_fold_run():
 
 def simple_run():
     """train without k-fold"""
-
     # set the logger
     utils.set_logger(config.log_dir)
     # 设置gpu为命令行参数指定的id
@@ -99,14 +98,19 @@ def run(word_train, label_train, word_dev, label_dev, vocab, device, kf_index=0)
     dev_loader = DataLoader(dev_dataset, batch_size=config.batch_size,
                             shuffle=True, collate_fn=dev_dataset.collate_fn)
     # get GloVe embedding
-    embedding_weight = embedding(vocab)
+    if config.pretrained_embedding:
+        embedding_weight = embedding(vocab)
+    else:
+        embedding_weight = None
     # model
     model = BiLSTM_CRF(embedding_size=config.embedding_size,
                        hidden_size=config.hidden_size,
-                       drop_out=config.drop_out,
                        vocab_size=vocab.vocab_size(),
                        target_size=vocab.label_size(),
-                       pretrained_embedding=True,
+                       num_layers=config.lstm_layers,
+                       lstm_drop_out=config.lstm_drop_out,
+                       nn_drop_out=config.nn_drop_out,
+                       pretrained_embedding=config.pretrained_embedding,
                        embedding_weight=embedding_weight)
     model.to(device)
     # optimizer
@@ -126,4 +130,5 @@ def run(word_train, label_train, word_dev, label_dev, vocab, device, kf_index=0)
 if __name__ == '__main__':
     if os.path.exists(config.log_dir):
         os.remove(config.log_dir)
-    simple_run()
+    # simple_run()
+    k_fold_run()

@@ -86,7 +86,10 @@ class Vocabulary:
 
 if __name__ == "__main__":
     import config
+    if os.path.exists(config.vocab_path):
+        os.remove(config.vocab_path)
     # 建立词表
     vocab = Vocabulary(config)
     vocab.get_vocab()
     print(len(vocab.word2id))
+
