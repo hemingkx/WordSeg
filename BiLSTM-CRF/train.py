@@ -16,7 +16,6 @@ np.set_printoptions(threshold=np.inf)
 def epoch_train(train_loader, model, optimizer, scheduler, device, epoch, kf_index=0):
     # set model to training mode
     model.train()
-    # step number in one epoch: 336
     train_loss = 0.0
     for idx, batch_samples in enumerate(tqdm(train_loader)):
         x, y, mask, lens = batch_samples
@@ -61,7 +60,10 @@ def train(train_loader, dev_loader, vocab, model, optimizer, scheduler, device, 
             improve_f1 = val_f1 - best_val_f1
             if improve_f1 > 1e-5:
                 best_val_f1 = val_f1
-                torch.save(model, config.model_dir)
+                if kf_index == 0:
+                    torch.save(model, config.model_dir)
+                else:
+                    torch.save(model, config.exp_dir + "model_{}.pth".format(kf_index))
                 logging.info("--------Save best model!--------")
                 if improve_f1 < config.patience:
                     patience_counter += 1
@@ -84,26 +86,26 @@ def dev(data_loader, vocab, model, device, mode='dev'):
     sent_data = []
     dev_losses = 0
     for idx, batch_samples in enumerate(tqdm(data_loader)):
-        sentences, labels, masks, lens = batch_samples
+        words, labels, masks, lens = batch_samples
         sent_data.extend([[vocab.id2word.get(idx.item()) for i, idx in enumerate(indices) if mask[i] > 0]
-                          for (mask, indices) in zip(masks, sentences)])
-        sentences = sentences.to(device)
+                          for (mask, indices) in zip(masks, words)])
+        words = words.to(device)
         labels = labels.to(device)
         masks = masks.to(device)
-        y_pred = model.forward(sentences)
+        y_pred = model.forward(words, training=False)
         labels_pred = model.crf.decode(y_pred, mask=masks)
         targets = [itag[:ilen] for itag, ilen in zip(labels.cpu().numpy(), lens)]
         true_tags.extend([[vocab.id2label.get(idx) for idx in indices] for indices in targets])
         pred_tags.extend([[vocab.id2label.get(idx) for idx in indices] for indices in labels_pred])
         # 计算梯度
-        _, dev_loss = model.forward_with_crf(sentences, masks, labels)
+        _, dev_loss = model.forward_with_crf(words, masks, labels)
         dev_losses += dev_loss
     assert len(pred_tags) == len(true_tags)
     assert len(sent_data) == len(true_tags)
 
     # logging loss, f1 and report
     metrics = {}
-    f1, p, r = f1_score(sent_data, pred_tags, true_tags)
+    f1, p, r = f1_score(pred_tags, true_tags)
     metrics['f1'] = f1
     metrics['p'] = p
     metrics['r'] = r
@@ -112,6 +114,14 @@ def dev(data_loader, vocab, model, device, mode='dev'):
         bad_case(sent_data, pred_tags, true_tags)
         output_write(sent_data, pred_tags)
     return metrics
+
+
+def load_model(model_dir, device):
+    # Prepare model
+    model = torch.load(model_dir)
+    model.to(device)
+    logging.info("--------Load model from {}--------".format(model_dir))
+    return model
 
 
 def test(dataset_dir, vocab, device, kf_index=0):
@@ -124,15 +134,10 @@ def test(dataset_dir, vocab, device, kf_index=0):
     # build data_loader
     test_loader = DataLoader(test_dataset, batch_size=config.batch_size,
                              shuffle=False, collate_fn=test_dataset.collate_fn)
-    # Prepare model
-    if config.model_dir is not None:
-        # model
-        model = torch.load(config.model_dir)
-        model.to(device)
-        logging.info("--------Load model from {}--------".format(config.model_dir))
+    if kf_index == 0:
+        model = load_model(config.model_dir, device)
     else:
-        logging.info("--------No model to test !--------")
-        return
+        model = load_model(config.exp_dir + "model_{}.pth".format(kf_index), device)
     metric = dev(test_loader, vocab, model, device, mode='test')
     f1 = metric['f1']
     p = metric['p']

@@ -67,7 +67,6 @@ def k_fold_run():
 
 def simple_run():
     """train without k-fold"""
-
     # set the logger
     utils.set_logger(config.log_dir)
     # 设置gpu为命令行参数指定的id
@@ -100,9 +99,11 @@ def run(word_train, label_train, word_dev, label_dev, vocab, device, kf_index=0)
     # model
     model = BiLSTM_CRF(embedding_size=config.embedding_size,
                        hidden_size=config.hidden_size,
-                       drop_out=config.drop_out,
                        vocab_size=vocab.vocab_size(),
-                       target_size=vocab.label_size())
+                       target_size=vocab.label_size(),
+                       num_layers=config.lstm_layers,
+                       lstm_drop_out=config.lstm_drop_out,
+                       nn_drop_out=config.nn_drop_out)
     model.to(device)
     # optimizer
     optimizer = optim.Adam(model.parameters(), lr=config.lr, betas=config.betas)
@@ -111,7 +112,7 @@ def run(word_train, label_train, word_dev, label_dev, vocab, device, kf_index=0)
     for p in model.crf.parameters():
         _ = torch.nn.init.uniform_(p, -1, 1)
     # train and test
-    train(train_loader, dev_loader, vocab, model, optimizer, scheduler, device, kf_index)
+    # train(train_loader, dev_loader, vocab, model, optimizer, scheduler, device, kf_index)
     with torch.no_grad():
         # test on the final test set
         test_loss, f1 = test(config.test_dir, vocab, device, kf_index)
@@ -122,3 +123,4 @@ if __name__ == '__main__':
     if os.path.exists(config.log_dir):
         os.remove(config.log_dir)
     simple_run()
+    # k_fold_run()
