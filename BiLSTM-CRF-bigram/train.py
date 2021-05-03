@@ -16,7 +16,6 @@ np.set_printoptions(threshold=np.inf)
 def epoch_train(train_loader, model, optimizer, scheduler, device, epoch, kf_index=0):
     # set model to training mode
     model.train()
-    # step number in one epoch: 336
     train_loss = 0.0
     for idx, batch_samples in enumerate(tqdm(train_loader)):
         u, b, y, mask, lens = batch_samples
