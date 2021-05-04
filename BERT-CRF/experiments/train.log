@@ -1,0 +1,304 @@
+2021-05-04 23:05:04,532:INFO: device: cuda:0
+2021-05-04 23:05:04,532:INFO: --------Process Done!--------
+2021-05-04 23:05:05,292:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-04 23:05:05,292:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-04 23:05:05,292:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-04 23:05:05,293:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-04 23:05:05,293:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-04 23:05:05,293:INFO: loading file None
+2021-05-04 23:05:05,293:INFO: loading file None
+2021-05-04 23:05:05,293:INFO: loading file None
+2021-05-04 23:06:06,623:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-04 23:06:06,623:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-04 23:06:06,624:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-04 23:06:06,624:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-04 23:06:06,624:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-04 23:06:06,624:INFO: loading file None
+2021-05-04 23:06:06,624:INFO: loading file None
+2021-05-04 23:06:06,624:INFO: loading file None
+2021-05-04 23:06:13,583:INFO: --------Dataset Build!--------
+2021-05-04 23:06:13,583:INFO: --------Get Dataloader!--------
+2021-05-04 23:06:13,583:INFO: loading configuration file pretrained_bert_models/bert-base-chinese/config.json
+2021-05-04 23:06:13,584:INFO: Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "finetuning_task": null,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "is_decoder": false,
+  "layer_norm_eps": 1e-12,
+  "lstm_dropout_prob": 0.5,
+  "lstm_embedding_size": 768,
+  "max_position_embeddings": 512,
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "num_labels": 4,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "output_past": true,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "pruned_heads": {},
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "use_bfloat16": false,
+  "vocab_size": 21128
+}
+
+2021-05-04 23:06:13,584:INFO: loading weights file pretrained_bert_models/bert-base-chinese/pytorch_model.bin
+2021-05-04 23:06:18,441:INFO: Weights of BertSeg not initialized from pretrained model: ['classifier.weight', 'classifier.bias', 'crf.start_transitions', 'crf.end_transitions', 'crf.transitions']
+2021-05-04 23:06:18,441:INFO: Weights from pretrained model not used in BertSeg: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias']
+2021-05-04 23:06:25,345:INFO: --------Start Training!--------
+2021-05-04 23:30:34,616:INFO: Epoch: 1, train loss: 97.47498021126898
+2021-05-04 23:30:34,619:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-04 23:30:34,619:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-04 23:30:34,619:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-04 23:30:34,619:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-04 23:30:34,620:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-04 23:30:34,620:INFO: loading file None
+2021-05-04 23:30:34,620:INFO: loading file None
+2021-05-04 23:30:34,620:INFO: loading file None
+2021-05-04 23:31:48,956:INFO: Epoch: 1, dev loss: 32.31510687271754, f1 score: 0.9662456783401285
+2021-05-04 23:31:48,956:INFO: Configuration saved in /home/xiaheming/workspace/wordseg/experiments/config.json
+2021-05-04 23:31:50,475:INFO: Model weights saved in /home/xiaheming/workspace/wordseg/experiments/pytorch_model.bin
+2021-05-04 23:31:50,475:INFO: --------Save best model!--------
+2021-05-04 23:55:57,938:INFO: Epoch: 2, train loss: 27.639368691266565
+2021-05-04 23:55:57,942:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-04 23:55:57,943:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-04 23:55:57,943:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-04 23:55:57,943:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-04 23:55:57,944:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-04 23:55:57,944:INFO: loading file None
+2021-05-04 23:55:57,944:INFO: loading file None
+2021-05-04 23:55:57,944:INFO: loading file None
+2021-05-04 23:57:12,571:INFO: Epoch: 2, dev loss: 24.23961726029714, f1 score: 0.9758764448658251
+2021-05-04 23:57:12,571:INFO: Configuration saved in /home/xiaheming/workspace/wordseg/experiments/config.json
+2021-05-04 23:57:14,168:INFO: Model weights saved in /home/xiaheming/workspace/wordseg/experiments/pytorch_model.bin
+2021-05-04 23:57:14,168:INFO: --------Save best model!--------
+2021-05-05 00:21:21,273:INFO: Epoch: 3, train loss: 17.459097046915073
+2021-05-05 00:21:21,278:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-05 00:21:21,278:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-05 00:21:21,278:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-05 00:21:21,278:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-05 00:21:21,279:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-05 00:21:21,279:INFO: loading file None
+2021-05-05 00:21:21,279:INFO: loading file None
+2021-05-05 00:21:21,279:INFO: loading file None
+2021-05-05 00:22:35,568:INFO: Epoch: 3, dev loss: 23.94173376162847, f1 score: 0.9793973457682112
+2021-05-05 00:22:35,569:INFO: Configuration saved in /home/xiaheming/workspace/wordseg/experiments/config.json
+2021-05-05 00:22:37,121:INFO: Model weights saved in /home/xiaheming/workspace/wordseg/experiments/pytorch_model.bin
+2021-05-05 00:22:37,121:INFO: --------Save best model!--------
+2021-05-05 00:46:44,992:INFO: Epoch: 4, train loss: 12.024484449607066
+2021-05-05 00:46:44,996:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-05 00:46:44,996:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-05 00:46:44,997:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-05 00:46:44,997:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-05 00:46:44,997:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-05 00:46:44,997:INFO: loading file None
+2021-05-05 00:46:44,997:INFO: loading file None
+2021-05-05 00:46:44,997:INFO: loading file None
+2021-05-05 00:47:58,925:INFO: Epoch: 4, dev loss: 23.434723810354868, f1 score: 0.9796519861219287
+2021-05-05 00:47:58,925:INFO: Configuration saved in /home/xiaheming/workspace/wordseg/experiments/config.json
+2021-05-05 00:48:00,533:INFO: Model weights saved in /home/xiaheming/workspace/wordseg/experiments/pytorch_model.bin
+2021-05-05 00:48:00,533:INFO: --------Save best model!--------
+2021-05-05 01:12:07,114:INFO: Epoch: 5, train loss: 9.095209691158345
+2021-05-05 01:12:07,118:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-05 01:12:07,118:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-05 01:12:07,119:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-05 01:12:07,119:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-05 01:12:07,119:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-05 01:12:07,119:INFO: loading file None
+2021-05-05 01:12:07,119:INFO: loading file None
+2021-05-05 01:12:07,119:INFO: loading file None
+2021-05-05 01:13:21,563:INFO: Epoch: 5, dev loss: 28.46194545229276, f1 score: 0.9816529203837737
+2021-05-05 01:13:21,563:INFO: Configuration saved in /home/xiaheming/workspace/wordseg/experiments/config.json
+2021-05-05 01:13:23,061:INFO: Model weights saved in /home/xiaheming/workspace/wordseg/experiments/pytorch_model.bin
+2021-05-05 01:13:23,061:INFO: --------Save best model!--------
+2021-05-05 01:37:29,656:INFO: Epoch: 6, train loss: 7.221193748200301
+2021-05-05 01:37:29,660:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-05 01:37:29,661:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-05 01:37:29,661:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-05 01:37:29,661:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-05 01:37:29,661:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-05 01:37:29,661:INFO: loading file None
+2021-05-05 01:37:29,661:INFO: loading file None
+2021-05-05 01:37:29,661:INFO: loading file None
+2021-05-05 01:38:44,170:INFO: Epoch: 6, dev loss: 34.53540273259083, f1 score: 0.9815377797473963
+2021-05-05 02:02:49,596:INFO: Epoch: 7, train loss: 5.917590303245983
+2021-05-05 02:02:49,598:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-05 02:02:49,599:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-05 02:02:49,599:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-05 02:02:49,599:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-05 02:02:49,599:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-05 02:02:49,599:INFO: loading file None
+2021-05-05 02:02:49,599:INFO: loading file None
+2021-05-05 02:02:49,599:INFO: loading file None
+2021-05-05 02:04:03,585:INFO: Epoch: 7, dev loss: 36.26140562370419, f1 score: 0.9820341775852446
+2021-05-05 02:04:03,586:INFO: Configuration saved in /home/xiaheming/workspace/wordseg/experiments/config.json
+2021-05-05 02:04:05,103:INFO: Model weights saved in /home/xiaheming/workspace/wordseg/experiments/pytorch_model.bin
+2021-05-05 02:04:05,103:INFO: --------Save best model!--------
+2021-05-05 02:28:12,869:INFO: Epoch: 8, train loss: 4.907034108456235
+2021-05-05 02:28:12,873:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-05 02:28:12,874:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-05 02:28:12,874:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-05 02:28:12,874:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-05 02:28:12,874:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-05 02:28:12,874:INFO: loading file None
+2021-05-05 02:28:12,874:INFO: loading file None
+2021-05-05 02:28:12,874:INFO: loading file None
+2021-05-05 02:29:27,533:INFO: Epoch: 8, dev loss: 37.178933411836624, f1 score: 0.9821872576177285
+2021-05-05 02:29:27,534:INFO: Configuration saved in /home/xiaheming/workspace/wordseg/experiments/config.json
+2021-05-05 02:29:29,173:INFO: Model weights saved in /home/xiaheming/workspace/wordseg/experiments/pytorch_model.bin
+2021-05-05 02:29:29,173:INFO: --------Save best model!--------
+2021-05-05 02:53:34,056:INFO: Epoch: 9, train loss: 3.9609630293997453
+2021-05-05 02:53:34,059:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-05 02:53:34,060:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-05 02:53:34,060:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-05 02:53:34,060:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-05 02:53:34,061:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-05 02:53:34,061:INFO: loading file None
+2021-05-05 02:53:34,061:INFO: loading file None
+2021-05-05 02:53:34,061:INFO: loading file None
+2021-05-05 02:54:48,475:INFO: Epoch: 9, dev loss: 33.77553737958272, f1 score: 0.9825801587653554
+2021-05-05 02:54:48,475:INFO: Configuration saved in /home/xiaheming/workspace/wordseg/experiments/config.json
+2021-05-05 02:54:50,031:INFO: Model weights saved in /home/xiaheming/workspace/wordseg/experiments/pytorch_model.bin
+2021-05-05 02:54:50,031:INFO: --------Save best model!--------
+2021-05-05 03:18:54,233:INFO: Epoch: 10, train loss: 3.307821552152017
+2021-05-05 03:18:54,235:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-05 03:18:54,236:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-05 03:18:54,236:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-05 03:18:54,236:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-05 03:18:54,236:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-05 03:18:54,236:INFO: loading file None
+2021-05-05 03:18:54,236:INFO: loading file None
+2021-05-05 03:18:54,236:INFO: loading file None
+2021-05-05 03:20:08,747:INFO: Epoch: 10, dev loss: 28.991594250996908, f1 score: 0.9825763282669384
+2021-05-05 03:44:16,120:INFO: Epoch: 11, train loss: 2.8481636754279616
+2021-05-05 03:44:16,122:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-05 03:44:16,123:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-05 03:44:16,123:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-05 03:44:16,123:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-05 03:44:16,123:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-05 03:44:16,123:INFO: loading file None
+2021-05-05 03:44:16,123:INFO: loading file None
+2021-05-05 03:44:16,123:INFO: loading file None
+2021-05-05 03:45:30,736:INFO: Epoch: 11, dev loss: 27.86299689610799, f1 score: 0.9828643378718084
+2021-05-05 03:45:30,736:INFO: Configuration saved in /home/xiaheming/workspace/wordseg/experiments/config.json
+2021-05-05 03:45:32,325:INFO: Model weights saved in /home/xiaheming/workspace/wordseg/experiments/pytorch_model.bin
+2021-05-05 03:45:32,325:INFO: --------Save best model!--------
+2021-05-05 04:09:43,700:INFO: Epoch: 12, train loss: 2.7350893566280927
+2021-05-05 04:09:43,704:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-05 04:09:43,704:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-05 04:09:43,705:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-05 04:09:43,705:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-05 04:09:43,705:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-05 04:09:43,705:INFO: loading file None
+2021-05-05 04:09:43,705:INFO: loading file None
+2021-05-05 04:09:43,705:INFO: loading file None
+2021-05-05 04:10:58,058:INFO: Epoch: 12, dev loss: 26.817466195424398, f1 score: 0.9835946464409288
+2021-05-05 04:10:58,058:INFO: Configuration saved in /home/xiaheming/workspace/wordseg/experiments/config.json
+2021-05-05 04:10:59,684:INFO: Model weights saved in /home/xiaheming/workspace/wordseg/experiments/pytorch_model.bin
+2021-05-05 04:10:59,684:INFO: --------Save best model!--------
+2021-05-05 04:35:08,621:INFO: Epoch: 13, train loss: 2.700410886635956
+2021-05-05 04:35:08,624:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-05 04:35:08,625:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-05 04:35:08,625:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-05 04:35:08,625:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-05 04:35:08,625:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-05 04:35:08,625:INFO: loading file None
+2021-05-05 04:35:08,625:INFO: loading file None
+2021-05-05 04:35:08,625:INFO: loading file None
+2021-05-05 04:36:23,219:INFO: Epoch: 13, dev loss: 25.345079549153645, f1 score: 0.983243046751013
+2021-05-05 05:00:30,667:INFO: Epoch: 14, train loss: 2.754877206653474
+2021-05-05 05:00:30,670:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-05 05:00:30,670:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-05 05:00:30,670:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-05 05:00:30,671:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-05 05:00:30,671:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-05 05:00:30,671:INFO: loading file None
+2021-05-05 05:00:30,671:INFO: loading file None
+2021-05-05 05:00:30,671:INFO: loading file None
+2021-05-05 05:01:44,597:INFO: Epoch: 14, dev loss: 24.783031717936197, f1 score: 0.9832645443301162
+2021-05-05 05:25:50,963:INFO: Epoch: 15, train loss: 2.852922903930862
+2021-05-05 05:25:50,967:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-05 05:25:50,968:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-05 05:25:50,968:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-05 05:25:50,968:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-05 05:25:50,968:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-05 05:25:50,968:INFO: loading file None
+2021-05-05 05:25:50,968:INFO: loading file None
+2021-05-05 05:25:50,968:INFO: loading file None
+2021-05-05 05:27:05,051:INFO: Epoch: 15, dev loss: 23.70775451660156, f1 score: 0.9833242439156324
+2021-05-05 05:51:12,501:INFO: Epoch: 16, train loss: 2.870096015355806
+2021-05-05 05:51:12,504:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-05 05:51:12,505:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-05 05:51:12,505:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-05 05:51:12,505:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-05 05:51:12,505:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-05 05:51:12,505:INFO: loading file None
+2021-05-05 05:51:12,505:INFO: loading file None
+2021-05-05 05:51:12,505:INFO: loading file None
+2021-05-05 05:52:27,084:INFO: Epoch: 16, dev loss: 23.42489382425944, f1 score: 0.9832464169149993
+2021-05-05 05:52:27,085:INFO: Best val f1: 0.9835946464409288
+2021-05-05 05:52:27,085:INFO: Training Finished!
+2021-05-05 05:52:27,183:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-05 05:52:27,184:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-05 05:52:27,184:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-05 05:52:27,184:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-05 05:52:27,184:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-05 05:52:27,184:INFO: loading file None
+2021-05-05 05:52:27,184:INFO: loading file None
+2021-05-05 05:52:27,184:INFO: loading file None
+2021-05-05 05:52:33,569:INFO: --------Dataset Build!--------
+2021-05-05 05:52:33,569:INFO: --------Get Data-loader!--------
+2021-05-05 05:52:33,569:INFO: loading configuration file /home/xiaheming/workspace/wordseg/experiments/config.json
+2021-05-05 05:52:33,569:INFO: Model config {
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "finetuning_task": null,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "is_decoder": false,
+  "layer_norm_eps": 1e-12,
+  "lstm_dropout_prob": 0.5,
+  "lstm_embedding_size": 768,
+  "max_position_embeddings": 512,
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "num_labels": 4,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "output_past": true,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "pruned_heads": {},
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "use_bfloat16": false,
+  "vocab_size": 21128
+}
+
+2021-05-05 05:52:33,569:INFO: loading weights file /home/xiaheming/workspace/wordseg/experiments/pytorch_model.bin
+2021-05-05 05:52:36,000:INFO: --------Load model from /home/xiaheming/workspace/wordseg/experiments/--------
+2021-05-05 05:52:36,000:INFO: Model name 'pretrained_bert_models/bert-base-chinese/' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc, bert-base-german-dbmdz-cased, bert-base-german-dbmdz-uncased). Assuming 'pretrained_bert_models/bert-base-chinese/' is a path or url to a directory containing tokenizer files.
+2021-05-05 05:52:36,000:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/added_tokens.json. We won't load it.
+2021-05-05 05:52:36,000:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/special_tokens_map.json. We won't load it.
+2021-05-05 05:52:36,000:INFO: Didn't find file pretrained_bert_models/bert-base-chinese/tokenizer_config.json. We won't load it.
+2021-05-05 05:52:36,001:INFO: loading file pretrained_bert_models/bert-base-chinese/vocab.txt
+2021-05-05 05:52:36,001:INFO: loading file None
+2021-05-05 05:52:36,001:INFO: loading file None
+2021-05-05 05:52:36,001:INFO: loading file None
+2021-05-05 05:53:36,947:INFO: --------Bad Cases reserved !--------
+2021-05-05 05:53:37,140:INFO: test loss: 56.97738934538359, f1 score: 0.9655076240989812, precision: 0.9617569574172534, recall: 0.9692876590650163
