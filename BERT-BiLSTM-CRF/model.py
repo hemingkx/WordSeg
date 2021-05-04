@@ -10,6 +10,16 @@ class BertSeg(BertPreTrainedModel):
 
         self.bert = BertModel(config)
         self.dropout = nn.Dropout(config.hidden_dropout_prob)
+
+        self.bilstm = nn.LSTM(
+            input_size=config.lstm_embedding_size,  # 768
+            hidden_size=config.hidden_size // 2,  # 1024 / 2
+            batch_first=True,
+            num_layers=2,
+            dropout=config.lstm_dropout_prob,  # 0.5
+            bidirectional=True
+        )
+
         self.classifier = nn.Linear(config.hidden_size, config.num_labels)
         self.crf = CRF(config.num_labels, batch_first=True)
 
@@ -33,8 +43,9 @@ class BertSeg(BertPreTrainedModel):
         padded_sequence_output = pad_sequence(origin_sequence_output, batch_first=True)
         # dropout pred_label的一部分feature
         padded_sequence_output = self.dropout(padded_sequence_output)
+        lstm_output, _ = self.bilstm(padded_sequence_output)
         # 得到判别值
-        logits = self.classifier(padded_sequence_output)
+        logits = self.classifier(lstm_output)
 
         outputs = (logits,)
         if labels is not None:

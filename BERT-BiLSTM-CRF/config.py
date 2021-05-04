@@ -18,6 +18,7 @@ res_dir = data_dir + 'res.txt'
 test_ans = data_dir + 'test.txt'
 
 max_vocab_size = 1000000
+max_len = 500
 sep_word = '@'  # 拆分句子的文本分隔符
 sep_label = 'S'  # 拆分句子的标签分隔符
 
@@ -31,20 +32,19 @@ load_before = False
 full_fine_tuning = True
 
 # hyper-parameter
-learning_rate = 3e-5
+learning_rate = 1e-5
 weight_decay = 0.01
 clip_grad = 5
 
 batch_size = 4
-epoch_num = 10
+epoch_num = 20
 min_epoch_num = 5
 patience = 0.0002
 patience_num = 4
 
-gpu = '0'
+gpu = ''
 
 if gpu != '':
-    # device = torch.device(f"cuda:{gpu}")
     torch.distributed.init_process_group(backend='nccl')
     local_rank = torch.distributed.get_rank()
     torch.cuda.set_device(local_rank)

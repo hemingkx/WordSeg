@@ -98,7 +98,7 @@ def run():
     logging.info("--------Get Dataloader!--------")
     # Prepare model
     device = config.device
-    model = BertSeg.from_pretrained(config.roberta_model, num_labels=len(config.label2id))
+    model = BertSeg.from_pretrained(config.bert_model, num_labels=len(config.label2id))
     # 要先将model放到gpu上
     model = model.to(device)
     # Prepare optimizer
@@ -125,7 +125,7 @@ def run():
     optimizer = AdamW(optimizer_grouped_parameters, lr=config.learning_rate, correct_bias=False)
     train_steps_per_epoch = train_size // config.batch_size
     scheduler = get_cosine_schedule_with_warmup(optimizer,
-                                                num_warmup_steps=1 * train_steps_per_epoch,
+                                                num_warmup_steps=2 * train_steps_per_epoch,
                                                 num_training_steps=config.epoch_num * train_steps_per_epoch)
 
     model = DistributedDataParallel(model, find_unused_parameters=True,
