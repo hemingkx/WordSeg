@@ -60,13 +60,14 @@ pip install -r requirements.txt
 
 各个模型在数据集上的结果（f1 score）如下表所示：（Roberta均指RoBERTa-wwm-ext-large模型）
 
-|            模型             | F1 Score  |  Recall   | Precision | OOV Rate | OOV Recall | IV Recall |
-| :-------------------------: | :-------: | :-------: | :-------: | :------: | :--------: | :-------: |
-|         BiLSTM+CRF          |   0.927   |   0.922   |   0.933   |  0.058   |   0.622    |   0.940   |
-|    BiLSTM+CRF (unigram)     |   0.922   |   0.927   |   0.916   |  0.058   |   0.538    |   0.939   |
-| BiLSTM+CRF (unigram+bigram) |   0.945   |   0.947   | **0.944** |  0.058   | **0.649**  |   0.962   |
-|       Roberta+Softmax       | **0.946** |   0.948   |   0.943   |  0.076   |   0.639    |   0.974   |
-|         Roberta+CRF         | **0.946** | **0.951** |   0.942   |  0.077   |   0.636    | **0.977** |
+|            模型             | F1 Score  |  Recall   | Precision | OOV Rate | OOV Recall |
+| :-------------------------: | :-------: | :-------: | :-------: | :------: | :--------: |
+|         BiLSTM+CRF          |   0.927   |   0.922   |   0.933   |  0.058   |   0.622    |
+|    BiLSTM+CRF (unigram)     |   0.922   |   0.927   |   0.916   |  0.058   |   0.538    |
+| BiLSTM+CRF (unigram+bigram) |   0.945   |   0.947   | **0.944** |  0.058   | **0.649**  |
+|       Roberta+Softmax       | **0.946** |   0.948   |   0.943   |  0.076   |   0.639    |
+|         Roberta+CRF         | **0.946** | **0.951** |   0.942   |  0.077   |   0.636    |
+|     Roberta+BiLSTM+CRF      |           |           |           |          |            |
 
 ## Parameter Setting
 
