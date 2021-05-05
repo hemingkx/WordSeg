@@ -2,9 +2,9 @@
 
 本项目为中文分词任务baseline的代码实现，模型包括
 
-- BiLSTM-CRF
-- BERT-base + X (softmax/CRF)
-- Roberta + X (softmax/CRF)
+- BiLSTM-CRF + pretrained embedding (unigram/unigram+bigram)
+- BERT-base + X (softmax/CRF/BiLSTM-CRF)
+- Roberta + X (softmax/CRF/BiLSTM-CRF)
 
 本项目是 [CLUENER2020](https://github.com/hemingkx/CLUENER2020) 的拓展项目。
 
@@ -19,6 +19,7 @@
 - BiLSTM-CRF
 - BERT-Softmax
 - BERT-CRF
+- BERT-BiLSTM-CRF
 
 其中，根据使用的预训练模型的不同，BERT-base-X 模型可转换为 Roberta-X 模型。
 
@@ -56,9 +57,19 @@ pip install -r requirements.txt
 
 链接: https://pan.baidu.com/s/1rhleLywF_EuoxB2nmA212w  密码: isc5
 
+## Pretrained Embedding Required
+
+BiLSTM-CRF中使用的unigram-embedding和bigram-embedding均来自[Chinese-Word-Vectors](https://github.com/Embedding/Chinese-Word-Vectors) ：
+
+Various Co-occurrence Information$\rightarrow$Character Feature$\rightarrow$Word$\rightarrow$ Character (1-2)$\rightarrow$Context Word Vectors  [百度网盘下载地址](https://pan.baidu.com/s/1eeCS7uD3e_qVN8rPwmXhAw?_at_=1620177721918) 。
+
+关于选用该文件的具体说明参见 [中文字符向量 #18](https://github.com/Embedding/Chinese-Word-Vectors/issues/18) 。
+
 ## Results
 
-各个模型在数据集上的结果（f1 score）如下表所示：（Roberta均指RoBERTa-wwm-ext-large模型）
+各个模型在数据集上的结果（f1 score）如下表所示：
+
+> BERT均指Bert-chinese-base模型，RoBERTa均指RoBERTa-wwm-ext-large模型。
 
 |            模型             | F1 Score  |  Recall   | Precision | OOV Rate | OOV Recall | IV Recall |
 | :-------------------------: | :-------: | :-------: | :-------: | :------: | :--------: | --------- |
@@ -90,6 +101,8 @@ python run.py
 模型运行结束后，最优模型和训练log保存在./experiments/路径下。在测试集中的bad case保存在./case/bad_case.txt中。
 
 ## MultiGPU
+
+由于Roberta模型占用显存较多，因此该项目支持Multi GPU训练。BERT-base可直接设置为单卡训练。
 
 单卡训练指令：
 
