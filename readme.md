@@ -76,7 +76,7 @@ Various Co-occurrence Information$\rightarrow$Character Feature$\rightarrow$Word
 |         BiLSTM+CRF          |   0.927   |   0.922   |   0.933   |  0.058   |   0.622    | 0.940     |
 |    BiLSTM+CRF (unigram)     |   0.922   |   0.927   |   0.916   |  0.058   |   0.538    | 0.939     |
 | BiLSTM+CRF (unigram+bigram) |   0.945   |   0.947   |   0.944   |  0.058   |   0.649    | 0.962     |
-|        BERT+Softmax         |   0.946   |   0.948   |   0.943   |  0.076   |   0.639    | 0.974     |
+|        BERT+Softmax         | **0.965** |   0.961   |   0.968   |  0.058   |   0.850    | **0.968** |
 |          BERT+CRF           | **0.965** | **0.962** | **0.969** |  0.058   |   0.858    | **0.968** |
 |       BERT+BiLSTM+CRF       |   0.964   |   0.960   | **0.969** |  0.058   | **0.861**  | 0.966     |
 

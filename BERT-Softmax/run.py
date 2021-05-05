@@ -98,7 +98,7 @@ def run():
     logging.info("--------Get Dataloader!--------")
     # Prepare model
     device = config.device
-    model = BertSeg.from_pretrained(config.roberta_model, num_labels=len(config.label2id))
+    model = BertSeg.from_pretrained(config.bert_model, num_labels=len(config.label2id))
     # 要先将model放到gpu上
     model = model.to(device)
     # Prepare optimizer

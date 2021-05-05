@@ -1,13 +1,12 @@
 import torch
 import logging
+import numpy as np
 import torch.nn as nn
 from tqdm import tqdm
 
 import config
-import numpy as np
 from model import BertSeg
-from metrics import f1_score, bad_case, output_write
-from transformers import BertTokenizer
+from metrics import f1_score, bad_case, output_write, output2res
 
 
 def train_epoch(train_loader, model, optimizer, scheduler, epoch):
@@ -16,7 +15,7 @@ def train_epoch(train_loader, model, optimizer, scheduler, epoch):
     # step number in one epoch: 336
     train_losses = 0
     for idx, batch_samples in enumerate(tqdm(train_loader)):
-        batch_data, batch_token_starts, batch_labels = batch_samples
+        batch_data, batch_token_starts, batch_labels, _ = batch_samples
         # shift tensors to GPU if available
         batch_data = batch_data.to(config.device)
         batch_token_starts = batch_token_starts.to(config.device)
@@ -56,7 +55,6 @@ def train(train_loader, dev_loader, model, optimizer, scheduler, model_dir, loca
         improve_f1 = val_f1 - best_val_f1
         if improve_f1 > 1e-5:
             best_val_f1 = val_f1
-            # model.save_pretrained(model_dir)
             #  选择一个进程保存
             if local_rank == 0:
                 model.module.save_pretrained(model_dir)
@@ -78,7 +76,6 @@ def evaluate(dev_loader, model, mode='dev'):
     # set model to evaluation mode
     model.eval()
 
-    tokenizer = BertTokenizer.from_pretrained(config.bert_model, do_lower_case=True, skip_special_tokens=True)
     id2label = config.id2label
     true_tags = []
     pred_tags = []
@@ -87,13 +84,12 @@ def evaluate(dev_loader, model, mode='dev'):
 
     with torch.no_grad():
         for idx, batch_samples in enumerate(dev_loader):
-            batch_data, batch_token_starts, batch_tags = batch_samples
+            batch_data, batch_token_starts, batch_tags, ori_data = batch_samples
             # shift tensors to GPU if available
             batch_data = batch_data.to(config.device)
             batch_token_starts = batch_token_starts.to(config.device)
             batch_tags = batch_tags.to(config.device)
-            sent_data.extend([[tokenizer.convert_ids_to_tokens(idx.item()) for idx in indices
-                               if (idx.item() > 0 and idx.item() != 101)] for indices in batch_data])
+            sent_data.extend(ori_data)
             batch_masks = batch_data.gt(0)  # get padding mask
             # compute model output and loss
             loss = model((batch_data, batch_token_starts),
@@ -103,23 +99,29 @@ def evaluate(dev_loader, model, mode='dev'):
             batch_output = model((batch_data, batch_token_starts),
                                  token_type_ids=None, attention_mask=batch_masks)[0]
 
+            label_masks = batch_tags.gt(-1).to('cpu').numpy()  # get padding mask
             batch_output = batch_output.detach().cpu().numpy()
             batch_tags = batch_tags.to('cpu').numpy()
-
-            pred_tags.extend([[id2label.get(idx) for idx in indices] for indices in np.argmax(batch_output, axis=2)])
-            true_tags.extend([[id2label.get(idx) if idx != -1 else 'O' for idx in indices] for indices in batch_tags])
+            for i, indices in enumerate(np.argmax(batch_output, axis=2)):
+                pred_tag = []
+                for j, idx in enumerate(indices):
+                    if label_masks[i][j]:
+                        pred_tag.append(id2label.get(idx))
+                pred_tags.append(pred_tag)
+            true_tags.extend([[id2label.get(idx) for idx in indices if idx > -1] for indices in batch_tags])
 
     assert len(pred_tags) == len(true_tags)
     assert len(sent_data) == len(true_tags)
 
     # logging loss, f1 and report
     metrics = {}
-    f1, p, r = f1_score(sent_data, pred_tags, true_tags)
+    f1, p, r = f1_score(true_tags, pred_tags)
     metrics['f1'] = f1
     metrics['p'] = p
     metrics['r'] = r
     if mode != 'dev':
         bad_case(sent_data, pred_tags, true_tags)
         output_write(sent_data, pred_tags)
+        output2res()
     metrics['loss'] = float(dev_losses) / len(dev_loader)
     return metrics

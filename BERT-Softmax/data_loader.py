@@ -36,7 +36,8 @@ class SegDataset(Dataset):
             # 变成单个字的列表，开头加上[CLS]
             words = ['[CLS]'] + [item for token in words for item in token]
             token_start_idxs = 1 + np.cumsum([0] + word_lens[:-1])
-            sentences.append((self.tokenizer.convert_tokens_to_ids(words), token_start_idxs))
+            # 拼接原句
+            sentences.append(((self.tokenizer.convert_tokens_to_ids(words), token_start_idxs), line))
         for tag in origin_labels:
             label_id = [self.label2id.get(t) for t in tag]
             labels.append(label_id)
@@ -61,7 +62,8 @@ class SegDataset(Dataset):
             2. aligning: 找到每个sentence sequence里面有label项，文本与label对齐
             3. tensor：转化为tensor
         """
-        sentences = [x[0] for x in batch]
+        sentences = [x[0][0] for x in batch]
+        ori_sents = [x[0][1] for x in batch]
         labels = [x[1] for x in batch]
 
         # batch length
@@ -96,4 +98,4 @@ class SegDataset(Dataset):
         batch_data = torch.tensor(batch_data, dtype=torch.long)
         batch_label_starts = torch.tensor(batch_label_starts, dtype=torch.long)
         batch_labels = torch.tensor(batch_labels, dtype=torch.long)
-        return [batch_data, batch_label_starts, batch_labels]
+        return [batch_data, batch_label_starts, batch_labels, ori_sents]
