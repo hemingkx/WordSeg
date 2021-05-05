@@ -6,7 +6,6 @@ from tqdm import tqdm
 import config
 from model import BertSeg
 from metrics import f1_score, bad_case, output_write
-from transformers import BertTokenizer
 
 
 def train_epoch(train_loader, model, optimizer, scheduler, epoch):
@@ -76,7 +75,6 @@ def evaluate(dev_loader, model, mode='dev'):
     # set model to evaluation mode
     model.eval()
 
-    tokenizer = BertTokenizer.from_pretrained(config.bert_model, do_lower_case=True, skip_special_tokens=True)
     id2label = config.id2label
     true_tags = []
     pred_tags = []
@@ -116,7 +114,7 @@ def evaluate(dev_loader, model, mode='dev'):
 
     # logging loss, f1 and report
     metrics = {}
-    f1, p, r = f1_score(pred_tags, true_tags)
+    f1, p, r = f1_score(true_tags, pred_tags)
     metrics['f1'] = f1
     metrics['p'] = p
     metrics['r'] = r

@@ -105,7 +105,7 @@ def dev(data_loader, vocab, model, device, mode='dev'):
 
     # logging loss, f1 and report
     metrics = {}
-    f1, p, r = f1_score(pred_tags, true_tags)
+    f1, p, r = f1_score(true_tags, pred_tags)
     metrics['f1'] = f1
     metrics['p'] = p
     metrics['r'] = r
