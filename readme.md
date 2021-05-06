@@ -81,6 +81,14 @@ Various Co-occurrence Information$\rightarrow$Character Feature$\rightarrow$Word
 |       BERT+BiLSTM+CRF       |   0.964   |   0.960   | **0.969** |  0.058   | **0.861**  | 0.966     |
 |         RoBERTa+CRF         |   0.962   |   0.960   |   0.965   |  0.058   |   0.827    | **0.968** |
 
+我们在BiLSTM-CRF代码中实现了K折验证，结果如下：
+
+|            Model            | K-fold | Average F1 Score | Average Test Loss |
+| :-------------------------: | :----: | :--------------: | :---------------: |
+|         BiLSTM+CRF          |   10   |      0.923       |      887.08       |
+|    BiLSTM+CRF (unigram)     |   10   |      0.918       |      640.43       |
+| BiLSTM+CRF (unigram+bigram) |   10   |    **0.943**     |      506.95       |
+
 ## Parameter Setting
 
 ### 1.model parameters
