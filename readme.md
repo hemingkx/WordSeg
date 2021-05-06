@@ -79,6 +79,7 @@ Various Co-occurrence Information$\rightarrow$Character Feature$\rightarrow$Word
 |        BERT+Softmax         | **0.965** |   0.961   |   0.968   |  0.058   |   0.850    | **0.968** |
 |          BERT+CRF           | **0.965** | **0.962** | **0.969** |  0.058   |   0.858    | **0.968** |
 |       BERT+BiLSTM+CRF       |   0.964   |   0.960   | **0.969** |  0.058   | **0.861**  | 0.966     |
+|         RoBERTa+CRF         |   0.962   |   0.960   |   0.965   |  0.058   |   0.827    | **0.968** |
 
 ## Parameter Setting
 
