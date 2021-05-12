@@ -2,7 +2,7 @@
 
 本项目为中文分词任务baseline的代码实现，模型包括
 
-- BiLSTM-CRF + pretrained embedding (unigram/unigram+bigram)
+- BiLSTM-CRF + pretrained embedding + X (unigram/unigram+bigram)
 - BERT-base + X (softmax/CRF/BiLSTM-CRF)
 - Roberta + X (softmax/CRF/BiLSTM-CRF)
 
@@ -12,16 +12,22 @@
 
 数据集来源于[SIGHAN 2005](http://sighan.cs.uchicago.edu/bakeoff2005/)第二届中文分词任务中的Peking University数据集。
 
+如有需要，这里是PKU数据集及评测脚本的百度网盘地址👇：
+
+https://pan.baidu.com/s/1iCtmfKyVymYpb3KKiKsRRg  密码: vtcf
+
+将数据集及评测脚本解压后放置在所用模型的./data/路径下即可。
+
 ## Model
 
 本项目实现了中文分词任务的baseline模型，对应路径分别为：
 
-- BiLSTM-CRF
+- BiLSTM-CRF ( + pretrained embedding)
 - BERT-Softmax
 - BERT-CRF
 - BERT-BiLSTM-CRF
 
-其中，根据使用的预训练模型的不同，BERT-base-X 模型可转换为 Roberta-X 模型。
+其中，根据使用的预训练模型的不同，BERT-base-X 模型可转换为 RoBERTa-X 模型。
 
 ## Requirements
 
@@ -109,9 +115,25 @@ python run.py
 
 模型运行结束后，最优模型和训练log保存在./experiments/路径下。在测试集中的bad case保存在./case/bad_case.txt中。
 
+## Evaluation
+
+本项目可以使用SIGHAN 2005官方脚本计算F1 Score等评测指标。
+
+BiLSTM-CRF需在./data/路径下运行
+
+```
+perl scripts/score training_vocab.txt test.txt output.txt > score.txt
+```
+
+BERT + X需在./data/路径下运行
+
+```
+perl scripts/score training_vocab.txt test.txt res.txt > score.txt
+```
+
 ## MultiGPU
 
-由于Roberta模型占用显存较多，因此该项目支持Multi GPU训练。BERT-base可直接设置为单卡训练。
+由于Roberta模型占用显存较多，因此该项目中的BERT部分支持Multi GPU训练。BERT-base可直接设置为单卡训练。
 
 单卡训练指令：
 

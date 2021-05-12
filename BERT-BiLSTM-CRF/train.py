@@ -5,7 +5,7 @@ from tqdm import tqdm
 
 import config
 from model import BertSeg
-from metrics import f1_score, bad_case, output_write
+from metrics import f1_score, bad_case, output_write, output2res
 
 
 def train_epoch(train_loader, model, optimizer, scheduler, epoch):
@@ -121,5 +121,6 @@ def evaluate(dev_loader, model, mode='dev'):
     if mode != 'dev':
         bad_case(sent_data, pred_tags, true_tags)
         output_write(sent_data, pred_tags)
+        output2res()
     metrics['loss'] = float(dev_losses) / len(dev_loader)
     return metrics
