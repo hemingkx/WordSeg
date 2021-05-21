@@ -2,11 +2,13 @@
 
 本项目为中文分词任务baseline的代码实现，模型包括
 
-- BiLSTM-CRF + pretrained embedding + X (unigram/unigram+bigram)
+- BiLSTM-CRF + pretrained embedding (unigram/unigram+bigram)
 - BERT-base + X (softmax/CRF/BiLSTM-CRF)
 - Roberta + X (softmax/CRF/BiLSTM-CRF)
 
 本项目是 [CLUENER2020](https://github.com/hemingkx/CLUENER2020) 的拓展项目。
+
+项目说明参考知乎文章：[紧追SOTA！教你用Pytorch上手BERT中文分词！](https://zhuanlan.zhihu.com/p/371842740)
 
 ## Dataset
 
@@ -155,4 +157,10 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 nohup python -m torch.distributed.launch --nproc_pe
 
 ## Attention
 
+#### 1.log保存
+
 目前，当前模型的train.log已保存在./experiments/路径下，如要重新运行模型，请先将train.log移出当前路径，以免覆盖。
+
+#### 2.关于注释
+
+本项目是 [CLUENER2020](https://github.com/hemingkx/CLUENER2020) 的拓展项目，因此有些代码注释没有改过来，对项目运行无任何影响。
