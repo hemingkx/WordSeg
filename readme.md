@@ -16,7 +16,7 @@
 
 如有需要，这里是PKU数据集及评测脚本的百度网盘地址👇：
 
-https://pan.baidu.com/s/1iCtmfKyVymYpb3KKiKsRRg  密码: vtcf
+链接: https://pan.baidu.com/s/1yZrDSrvAXi-0mCxRp3L-sw  密码: 31qd
 
 将数据集及评测脚本解压后放置在所用模型的./data/路径下即可。
 
