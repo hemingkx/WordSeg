@@ -95,7 +95,19 @@ def train(train_loader, dev_loader, vocab, model, optimizer, scheduler, device, 
 
 
 def dev(data_loader, vocab, model, device, mode='dev'):
-    """test model performance on dev-set"""
+    """
+    函数功能：
+        通过验证集来验证模型参数的有效性
+    
+    细节：
+        1. 验证的思路是基于验证集的文字集合，使用模型训练出来的参数来预测其每个字所对应的标签，
+        然后将其与实际标签进行比较，统计预测的正确率作为模型参数的有效性。其中true_tags是
+        验证集每个字所对应的真实标签的列表，pre_tags是根据模型参数预测出来的标签的列表
+        2. module.forward 函数使用LSTM模型来预测每个字对应各个标签的概率
+        3. model.crf.decode 函数使用 CRF 模型来最终确定每个字所对应的标签
+        4. f1_score 函数用于计算模型参数的有效性，具体来说计算了准确率、召回率和这两个比率的几何平均
+        5. 模型参数的评价指标都存放在了变量 metrics 中，并作为函数输出
+    """
     model.eval()
     true_tags = []
     pred_tags = []
@@ -120,8 +132,8 @@ def dev(data_loader, vocab, model, device, mode='dev'):
     assert len(sent_data) == len(true_tags)
 
     # logging loss, f1 and report
-    metrics = {}
-    f1, p, r = f1_score(true_tags, pred_tags)
+    metrics = {}        # 用于存储模型参数的评价指标
+    f1, p, r = f1_score(true_tags, pred_tags)   # 用于计算模型参数的评价指标
     metrics['f1'] = f1      # p和r的几何平均
     metrics['p'] = p        # 准确率
     metrics['r'] = r        # 召回率
