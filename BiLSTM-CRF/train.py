@@ -61,6 +61,7 @@ def train(train_loader, dev_loader, vocab, model, optimizer, scheduler, device, 
     # start training
     for epoch in range(1, config.epoch_num + 1):        # 不停的进行模型训练
         epoch_train(train_loader, model, optimizer, scheduler, device, epoch, kf_index)  #训练模型参数
+        # 模型参数验证
         with torch.no_grad():
             # dev loss calculation
             metric = dev(dev_loader, vocab, model, device)  #模型的验证，验证机指标计算（与真实值的偏差）
