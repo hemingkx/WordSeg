@@ -36,6 +36,11 @@ class BiLSTM_CRF(nn.Module):
         return tag_scores
 
     def forward_with_crf(self, unigrams, input_mask, input_tags):
-        tag_scores = self.forward(unigrams)
-        loss = self.crf(tag_scores, input_tags, input_mask) * (-1)
+        """
+        函数功能：
+            1. 使用BiLSTM模型计算每个字对应的4个标签的概率 self.forware
+            2. 使用crf算法计算损失值 self.crf
+        """
+        tag_scores = self.forward(unigrams)     # BiLSMT模型，得到每个字对应的每个标签的概率
+        loss = self.crf(tag_scores, input_tags, input_mask) * (-1) 
         return tag_scores, loss
