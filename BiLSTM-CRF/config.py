@@ -29,7 +29,7 @@ lr_gamma = 0.5
 epoch_num = 30
 min_epoch_num = 5
 patience = 0.0002
-patience_num = 5
+patience_num = 3
 
 gpu = '0'
 
