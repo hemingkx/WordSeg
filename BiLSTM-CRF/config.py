@@ -1,8 +1,8 @@
 import os
 
 data_dir = os.getcwd() + '/data/'
-train_dir = data_dir + 'training.npz'
-test_dir = data_dir + 'test.npz'
+train_dir = data_dir + 'training.npz'       # 训练集
+test_dir = data_dir + 'test.npz'            # 测试集
 files = ['training', 'test']
 vocab_path = data_dir + 'vocab.npz'
 exp_dir = os.getcwd() + '/experiments/'
@@ -29,7 +29,7 @@ lr_gamma = 0.5
 epoch_num = 30
 min_epoch_num = 5
 patience = 0.0002
-patience_num = 5
+patience_num = 3
 
 gpu = '0'
 
